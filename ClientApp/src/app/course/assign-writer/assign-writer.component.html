@@ -1,0 +1,15 @@
+<div *ngIf="IsRole('Administrator')">
+<div *ngIf="course && writers">
+  <h1>Assign Writer</h1>
+  <div class="form-group">
+    <label for="writer">Writers:&nbsp;</label>
+    <select [(ngModel)]="writer" id="writer" class="form-control">
+      <option value="" disabled selected>select a writer</option>
+      <option *ngFor="let writer of writers.entities" [ngValue]="writer.properties.id">{{writer.properties.username}}</option>
+    </select>
+    <div>
+    <button *ngIf="course.actions" (click)="AssignWriter()" class="btn btn-dark">Assign</button>
+    </div>
+  </div>
+</div>
+</div>

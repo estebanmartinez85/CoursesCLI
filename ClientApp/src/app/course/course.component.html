@@ -1,0 +1,24 @@
+<div *ngIf="course">
+  <h1>Course: {{course.properties.title}}</h1>
+  <div>
+    <div>Code: {{course.properties.code}}</div>
+    <div>Status: {{course.properties.status}}</div>
+  </div>
+
+  <router-outlet></router-outlet>
+
+  <div *ngIf="course.entities" style="padding-top: 50px">
+    <table class="table table-hover">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">Assigned Users</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let e of course.entities" (click)="GoToCourse(+e.properties.id, e.properties.status)">
+        <th scope="row">{{e.properties.user.fullName}}</th>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

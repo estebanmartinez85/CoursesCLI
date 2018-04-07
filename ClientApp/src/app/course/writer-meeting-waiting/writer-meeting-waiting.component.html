@@ -1,0 +1,6 @@
+<div *ngIf="IsRole('Administrator')">
+  <h1>Course Meeting Scheduled</h1>
+  <label for="complete">Completed: </label>
+  <input type="checkbox" id="complete" ([value])="complete">
+  <button id="completed" (click)="Completed()" class="btn btn-dark">Submit</button>
+</div>

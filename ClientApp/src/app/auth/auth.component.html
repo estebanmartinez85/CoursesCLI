@@ -1,0 +1,18 @@
+<div *ngIf="IsLoggedIn()">
+  <span>Logged In</span>
+  <button (click)="Logout()">Logout</button>
+</div>
+<div *ngIf="IsLoggedOut()">
+  <h1>Login</h1>
+  <table class="table">
+    <tr>
+      <td>Email:</td>
+      <th><input type="text" [(ngModel)]="username" id="username" class="form-control" /></th>
+    </tr>
+    <tr>
+      <td>Password:</td>
+      <td><input type="password" [(ngModel)]="password" id="password" class="form-control" /></td>
+    </tr>
+  </table>
+  <button (click)="Login()" id="login" class="btn btn-dark">Login</button>
+</div>

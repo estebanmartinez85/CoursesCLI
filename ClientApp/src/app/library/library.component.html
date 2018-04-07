@@ -1,0 +1,18 @@
+<div *ngIf="library">
+  <h1>{{library.properties.title}}</h1>
+  <div>Course Count: {{library.properties.courseCount}}</div>
+  <div *ngIf="library.entities">
+    <table class="table table-hover">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">Title</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let e of library.entities" (click)="RowClick(e.properties.id)">
+        <td>{{e.properties.title}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

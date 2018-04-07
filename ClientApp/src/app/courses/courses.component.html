@@ -1,0 +1,26 @@
+<div class=".container-fluid" *ngIf="courses">
+  <h1 class="display-4">Assigned Courses</h1>
+  <div *ngIf="courses.entities">
+      <table class="table table-hover">
+        <thead class="thead-dark">
+        <tr>
+          <th scope="col">Code</th>
+          <th scope="col">Title</th>
+          <th scope="col">Status</th>
+          <th scope="col" *ngIf="auth.user.role === 'Administrator'" style="text-align:right">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let e of courses.entities" (click)="GoToCourse(+e.properties.id, e.properties.status)">
+          <th scope="row">{{e.properties.code}}</th>
+          <td>{{e.properties.title}}</td>
+          <td>{{e.properties.status}}</td>
+          <td *ngIf="courses.actions && auth.user.role === 'Administrator'" align="right">
+            <button (click)="DeleteCourse(e.properties.id)" id="delete-course" class="btn btn-dark">Delete Course</button>
+          </td>
+        </tr>
+        </tbody>
+    </table>
+  </div>
+</div>
+
