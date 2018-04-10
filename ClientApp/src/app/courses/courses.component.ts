@@ -30,11 +30,8 @@ export class CoursesComponent extends BaseComponent implements OnInit  {
                  error => console.error(error));
   }
 
-  private GoToCourse(id: number, status: string){
-    if (this.auth.user.role === "Administrator")
+  public GoToCourse(id: number, status: string){
       this.router.navigate( [`course/${id}/`, `${status}`]);
-    else
-     this.router.navigate( [`course/${id}/`]);
   }
 
   public DeleteCourse(id:number): void {

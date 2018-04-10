@@ -54,6 +54,12 @@
                 <e p="assign-writer.component.spec.ts" t="Include" />
                 <e p="assign-writer.component.ts" t="Include" />
               </e>
+              <e p="course-add" t="Include">
+                <e p="course-add.component.css" t="Include" />
+                <e p="course-add.component.html" t="Include" />
+                <e p="course-add.component.spec.ts" t="Include" />
+                <e p="course-add.component.ts" t="Include" />
+              </e>
               <e p="course.component.css" t="Include" />
               <e p="course.component.html" t="Include" />
               <e p="course.component.spec.ts" t="Include" />
@@ -63,6 +69,18 @@
                 <e p="schedule-writer-meeting.component.html" t="Include" />
                 <e p="schedule-writer-meeting.component.spec.ts" t="Include" />
                 <e p="schedule-writer-meeting.component.ts" t="Include" />
+              </e>
+              <e p="storyboard" t="Include">
+                <e p="slide" t="Include">
+                  <e p="slide.component.css" t="Include" />
+                  <e p="slide.component.html" t="Include" />
+                  <e p="slide.component.spec.ts" t="Include" />
+                  <e p="slide.component.ts" t="Include" />
+                </e>
+                <e p="storyboard.component.css" t="Include" />
+                <e p="storyboard.component.html" t="Include" />
+                <e p="storyboard.component.spec.ts" t="Include" />
+                <e p="storyboard.component.ts" t="Include" />
               </e>
               <e p="writer-meeting-waiting" t="Include">
                 <e p="writer-meeting-waiting.component.css" t="Include" />

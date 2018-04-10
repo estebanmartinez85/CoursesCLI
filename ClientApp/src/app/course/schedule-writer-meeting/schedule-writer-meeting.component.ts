@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 import {CourseComponent} from "../course.component";
 
 @Component({
@@ -8,10 +8,12 @@ import {CourseComponent} from "../course.component";
 })
 export class ScheduleWriterMeetingComponent extends CourseComponent implements OnInit {
   private date: string = "2018-04-11T01:00";
+  @Output() onUsers = new EventEmitter<any>();
 
   ngOnInit() {
+    console.log("IN SWM");
     this.id = this.service.GetId();
-    this.service.getCourse(+this.id).subscribe((res)=>this.course = res);
+    this.service.getCourse(+this.id).subscribe((res)=>{this.course = res; console.log("BEFORE ONUSERS"); console.log(this.users) ;this.onUsers.emit(this.users);});
   }
 
   private ScheduleMeeting(date: string){

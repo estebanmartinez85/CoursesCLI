@@ -1,3 +1,10 @@
-<p>
-  library-add works!
-</p>
+<h1>New Library</h1>
+<div>
+  <table class="table">
+    <tr>
+      <td>Title:</td>
+      <td><input type="text" class="input-group" id="title" [(ngModel)]="title"></td>
+    </tr>
+  </table>
+  <button (click)="AddLibrary()">Add Library</button>
+</div>

@@ -3,6 +3,7 @@ import {BaseComponent} from "../base/base.component";
 import {environment} from "../../environments/environment";
 import {Observable} from "rxjs/Observable";
 import {SirenResponse} from "../DTO/sirenresponse";
+import {Action} from "../DTO/action";
 
 @Injectable()
 export class CourseService extends BaseComponent{
@@ -17,5 +18,17 @@ export class CourseService extends BaseComponent{
   }
   public GetUsersInRole(role: string): Observable<SirenResponse> {
     return this.http.get<SirenResponse>(environment.apiURL + "accounts/" + role);
+  }
+
+  public ProcessAction(course: SirenResponse, actionName: string, body: any){
+    let action: Action = course.actions.filter((x) => x.name == actionName)[0];
+    this.http.patch<SirenResponse>(action.href, body)
+      .subscribe(
+
+        (res) => {
+          this.router.navigateByUrl(`course/${course.properties.id}/${res.properties.status}`);
+
+          //this.router.navigate([`course/${course.properties.id}/`, `${res.properties.status}`],);
+        })
   }
 }

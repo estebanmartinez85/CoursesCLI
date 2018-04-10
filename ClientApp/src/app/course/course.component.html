@@ -4,10 +4,11 @@
     <div>Code: {{course.properties.code}}</div>
     <div>Status: {{course.properties.status}}</div>
   </div>
+  <ng-container *ngComponentOutlet="content"></ng-container>
+  <app-schedule-writer-meeting (onUsers)="updateUsers($event)"></app-schedule-writer-meeting>
+  <router-outlet (onUsers)="updateUsers($event)" ></router-outlet>
 
-  <router-outlet></router-outlet>
-
-  <div *ngIf="course.entities" style="padding-top: 50px">
+  <div *ngIf="users" style="padding-top: 50px">
     <table class="table table-hover">
       <thead class="thead-dark">
       <tr>
@@ -15,10 +16,14 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let e of course.entities" (click)="GoToCourse(+e.properties.id, e.properties.status)">
+      <tr *ngIf="users.length == 0">
+        <th>No Users Assigned</th>
+      </tr>
+      <tr *ngFor="let e of users">
         <th scope="row">{{e.properties.user.fullName}}</th>
       </tr>
       </tbody>
     </table>
   </div>
+  <button (click)="c()">Click</button>
 </div>

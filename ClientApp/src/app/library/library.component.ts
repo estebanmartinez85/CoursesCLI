@@ -10,20 +10,20 @@ import {LibraryService} from "../services/library.service";
 export class LibraryComponent implements OnInit {
   protected id: string;
   protected library: SirenResponse;
-  protected _libraryService: LibraryService;
+  protected service: LibraryService;
   Object = Object;
 
   constructor(libraryService: LibraryService){
-    this._libraryService = libraryService;
+    this.service = libraryService;
   }
 
   ngOnInit() {
-    this.id = this._libraryService.GetId();
-    this._libraryService.getLibrary(+this.id)
+    this.id = this.service.GetId();
+    this.service.getLibrary(+this.id)
       .subscribe((library) => { this.library = library });
   }
 
-  private RowClick(id: number){
-    this._libraryService.NavigateTo(['course/'+id]);
+  private GoToCourse(id: number, status: string){
+      this.service.router.navigate( [`course/${id}`, `${status}`]);
   }
 }

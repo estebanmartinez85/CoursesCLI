@@ -8,7 +8,7 @@
       <option *ngFor="let writer of writers.entities" [ngValue]="writer.properties.id">{{writer.properties.username}}</option>
     </select>
     <div>
-    <button *ngIf="course.actions" (click)="AssignWriter()" class="btn btn-dark">Assign</button>
+    <button *ngIf="course.actions" (click)="service.ProcessAction(course, 'assign-writer', { writerId: writer })" class="btn btn-dark">Assign</button>
     </div>
   </div>
 </div>

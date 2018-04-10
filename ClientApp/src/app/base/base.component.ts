@@ -14,8 +14,7 @@ export class BaseComponent implements OnInit {
   public http: HttpClient;
   public router: Router;
   public route: ActivatedRoute;
-
-  constructor(http:HttpClient, auth: AuthService, router: Router, route: ActivatedRoute) {
+  constructor(http:HttpClient, auth: AuthService, router: Router, route: ActivatedRoute ) {
     this.http = http;
     this.auth = auth;
     this.router = router;
