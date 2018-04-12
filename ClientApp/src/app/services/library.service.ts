@@ -10,7 +10,6 @@ import {Observable} from "rxjs/Observable";
 @Injectable()
 export class LibraryService extends BaseComponent{
   public GetId(): string {
-    console.log(this.route);
     return this.route.children[0].snapshot.paramMap.get("id");
   }
   public getLibrary(id: number): Observable<SirenResponse>{

@@ -14,7 +14,7 @@ export class CourseService extends BaseComponent{
     return this.http.get<SirenResponse>(environment.apiURL + `courses/${id}`);
   }
   public NavigateTo(route: string[]){
-    this.router.navigate(route);
+    this.router.navigate(route, { skipLocationChange: true });
   }
   public GetUsersInRole(role: string): Observable<SirenResponse> {
     return this.http.get<SirenResponse>(environment.apiURL + "accounts/" + role);
@@ -26,9 +26,7 @@ export class CourseService extends BaseComponent{
       .subscribe(
 
         (res) => {
-          this.router.navigateByUrl(`course/${course.properties.id}/${res.properties.status}`);
-
-          //this.router.navigate([`course/${course.properties.id}/`, `${res.properties.status}`],);
+          this.router.navigateByUrl(`course/${course.properties.id}/${res.properties.status}`, { skipLocationChange: true });
         })
   }
 }

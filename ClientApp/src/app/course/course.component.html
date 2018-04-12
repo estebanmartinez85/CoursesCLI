@@ -2,11 +2,10 @@
   <h1>Course: {{course.properties.title}}</h1>
   <div>
     <div>Code: {{course.properties.code}}</div>
-    <div>Status: {{course.properties.status}}</div>
+    <div>Status: {{SplitPascal(course.properties.status)}}</div>
   </div>
-  <ng-container *ngComponentOutlet="content"></ng-container>
-  <app-schedule-writer-meeting (onUsers)="updateUsers($event)"></app-schedule-writer-meeting>
-  <router-outlet (onUsers)="updateUsers($event)" ></router-outlet>
+
+  <router-outlet (activate)='onActivate($event)' (deactivate)='onDeactivate($event)'></router-outlet>
 
   <div *ngIf="users" style="padding-top: 50px">
     <table class="table table-hover">
@@ -25,5 +24,4 @@
       </tbody>
     </table>
   </div>
-  <button (click)="c()">Click</button>
 </div>

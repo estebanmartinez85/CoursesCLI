@@ -54,6 +54,12 @@
                 <e p="assign-writer.component.spec.ts" t="Include" />
                 <e p="assign-writer.component.ts" t="Include" />
               </e>
+              <e p="child" t="Include">
+                <e p="child.component.css" t="Include" />
+                <e p="child.component.html" t="Include" />
+                <e p="child.component.spec.ts" t="Include" />
+                <e p="child.component.ts" t="Include" />
+              </e>
               <e p="course-add" t="Include">
                 <e p="course-add.component.css" t="Include" />
                 <e p="course-add.component.html" t="Include" />

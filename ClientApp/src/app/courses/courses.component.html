@@ -14,13 +14,12 @@
         <tr *ngFor="let e of courses.entities" (click)="GoToCourse(+e.properties.id, e.properties.status)">
           <th scope="row">{{e.properties.code}}</th>
           <td>{{e.properties.title}}</td>
-          <td>{{e.properties.status}}</td>
+          <td>{{SplitPascal(e.properties.status)}}</td>
           <td *ngIf="courses.actions && auth.user.role === 'Administrator'" align="right">
-            <button (click)="DeleteCourse(e.properties.id)" id="delete-course" class="btn btn-dark">Delete Course</button>
+            <button (click)="DeleteCourse(e.properties.id); $event.stopPropagation();"  id="delete-course" class="btn btn-dark">Delete Course</button>
           </td>
         </tr>
         </tbody>
     </table>
   </div>
 </div>
-<button (click)="router.navigate(['course/62/Assign'])">goto 60</button>

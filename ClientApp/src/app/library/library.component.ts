@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {SirenResponse} from "../DTO/sirenresponse";
 import {LibraryService} from "../services/library.service";
+import {environment} from "../../environments/environment";
 
 @Component({
   selector: 'app-library',
@@ -19,11 +20,22 @@ export class LibraryComponent implements OnInit {
 
   ngOnInit() {
     this.id = this.service.GetId();
+    this.GetLibrary();
+  }
+
+  private GetLibrary(): void{
     this.service.getLibrary(+this.id)
       .subscribe((library) => { this.library = library });
   }
 
   private GoToCourse(id: number, status: string){
       this.service.router.navigate( [`course/${id}`, `${status}`]);
+  }
+  public DeleteCourse(id:number): void {
+    this.service.http.delete(environment.apiURL + "courses/" + id)
+      .subscribe((res)=> this.GetLibrary());
+  }
+  SplitPascal(status) {
+    return status.replace(/(?!^)([A-Z])/g, " $1");
   }
 }

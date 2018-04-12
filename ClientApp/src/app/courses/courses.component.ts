@@ -31,7 +31,7 @@ export class CoursesComponent extends BaseComponent implements OnInit  {
   }
 
   public GoToCourse(id: number, status: string){
-      this.router.navigate( [`course/${id}/`, `${status}`]);
+      this.router.navigate( [`course/${id}/`, status], { skipLocationChange: true });
   }
 
   public DeleteCourse(id:number): void {
@@ -44,5 +44,9 @@ export class CoursesComponent extends BaseComponent implements OnInit  {
       body[ff.name] = (<HTMLInputElement>document.getElementById(`field-${ff.name}`)).value;
     }
     this.http.post(action.href, body).subscribe((res) => this.GetCourses());
+  }
+
+  SplitPascal(status) {
+    return status.replace(/(?!^)([A-Z])/g, " $1");
   }
 }

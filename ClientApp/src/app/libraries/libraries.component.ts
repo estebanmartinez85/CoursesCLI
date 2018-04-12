@@ -25,7 +25,6 @@ export class LibrariesComponent extends BaseComponent implements OnInit {
                  error => console.error(error));
   }
   private AddLibrary(): void {
-    console.log("GO TO ADD LIBRARY PAGE");
   }
   public DeleteLibrary(id: number){
     this.http.delete(environment.apiURL + 'libraries/' + id).subscribe(res => this.GetLibraries());

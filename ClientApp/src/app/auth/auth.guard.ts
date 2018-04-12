@@ -22,7 +22,6 @@ export class AuthGuard implements CanActivate, CanActivateChild {
     }
 
     if (next.data["role"] !== undefined) {
-      console.log(next.data["role"]);
       let role = next.data["role"] as string;
       if (role !== this.auth.user.role)
         return false;
@@ -33,7 +32,6 @@ export class AuthGuard implements CanActivate, CanActivateChild {
 
   canActivateChild(childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
     if (childRoute.data["role"] !== undefined) {
-      console.log(childRoute.data["role"]);
       let role = childRoute.data["role"] as string;
       if (role !== this.auth.user.role)
         return false;

@@ -12,7 +12,6 @@ export class LibraryAddComponent extends LibraryComponent implements OnInit {
   ngOnInit() {
   }
   private AddLibrary(){
-    console.log(this.title);
     this.service.http.post(environment.apiURL + 'libraries/', { Title: this.title }).subscribe((res) => this.service.NavigateTo(['libraries']));
   }
 }
