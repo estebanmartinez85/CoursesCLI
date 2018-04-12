@@ -1,0 +1,12 @@
+<div *ngIf="course">
+  <div>
+    <h3>Storyboard</h3>
+    <div>
+      <quill *ngIf="type == 'component' && show"  [config]="config" [value]="text" [modules]="modules" [disabled]="disabled"
+             (blur)="onEditorBlur($event)" (focus)="onEditorFocus($event)" (editorCreate)="onEditorCreate($event)" (valueChange)="onValueChange($event)" (contentChange)="onContentChange($event)"
+             (selectionChange)="onSelectionChange($event)">
+      </quill>
+      <button *ngIf="service.auth.user.role === 'Administrator' || service.auth.user.role === 'Writer'" (click)="SaveDocument()" id="save-document" class="btn btn-dark">Save Document</button>
+    </div>
+  </div>
+</div>
