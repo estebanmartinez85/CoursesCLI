@@ -1,0 +1,51 @@
+<div *ngIf="timesheet">
+{{timesheet.properties.id}}
+{{timesheet.properties.beginDate}}
+{{timesheet.properties.endDate}}
+  <table class="table" border="1" >
+    <tr>
+      <th>-</th>
+      <th>Course</th>
+      <th>Task</th>
+      <th *ngFor="let d of dates">{{d}}</th>
+      <th>Total</th>
+    </tr>
+    <tr *ngFor="let f of this.rows.entities; let i = index; ">
+      <td><button (click)="RemoveRow(i)">-</button></td>
+      <td>
+        <select [(ngModel)]="f.properties.courseId" id="course" required>
+          <option value="" disabled selected>select a course</option>
+          <option *ngFor="let c of courses.entities" [ngValue]="c.properties.id"> {{c.properties.title}}</option>
+        </select>
+      </td>
+      <td>
+        <select [(ngModel)]="f.properties.taskId" id="task" required>
+          <option value="" disabled selected>select a task</option>
+          <option *ngFor="let t of tasks.entities" [ngValue]="t.properties.id"> {{t.properties.name}}</option>
+        </select>
+      </td>
+      <td *ngFor="let g of Object.keys(f.properties.times)">
+        <input type="number" [(ngModel)]="f.properties.times[g]" (change)="OnChange(f)"  />hrs
+      </td>
+      <td>
+        {{f.properties.totalHours}}
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><button (click)="AddRow()">New Row</button></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <th>{{total}}</th>
+    </tr>
+  </table>
+  <div align="right">
+  <button (click)="SaveTimesheet()">Save</button>
+</div>
+</div>

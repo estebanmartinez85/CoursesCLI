@@ -1,0 +1,46 @@
+<div *ngIf="users">
+  <select [(ngModel)]="user" id="user" (change)="SayName()">
+    <option value="" disabled selected>select a user</option>
+    <option *ngFor="let u of users.entities" [ngValue]="u.properties.id">{{u.properties.name}}</option>
+  </select>
+  <div *ngIf="timesheet">
+    {{timesheet.properties.id}}
+    {{timesheet.properties.beginDate}}
+    {{timesheet.properties.endDate}}
+    <table class="table" border="1" >
+      <tr>
+        <th>Course</th>
+        <th>Task</th>
+        <th *ngFor="let d of dates">{{d}}</th>
+        <th>Total</th>
+      </tr>
+      <tr *ngFor="let f of this.rows.entities; let i = index; ">
+        <td>
+          {{FindCourse(f.properties.courseId)}}
+        </td>
+        <td>
+          {{FindTask(f.properties.taskId)}}
+        </td>
+        <td *ngFor="let g of Object.keys(f.properties.times)">
+          {{f.properties.times[g]}} hrs
+        </td>
+        <td>
+          {{f.properties.totalHours}}
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <th>{{total}}</th>
+      </tr>
+    </table>
+  </div>
+
+</div>
