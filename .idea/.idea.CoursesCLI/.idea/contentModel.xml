@@ -3,6 +3,7 @@
   <component name="ContentModelStore">
     <e p="C:\Users\Danny\.Rider2017.3\system\resharper-host\local\Transient\ReSharperHost\v11\SolutionCaches\_CoursesCLI.-1296977603.00" t="ExcludeRecursive" />
     <e p="C:\Users\Danny\CoursesCLI" t="IncludeRecursive">
+      <e p=".dockerignore" t="Include" />
       <e p=".gitignore" t="Include" />
       <e p="appsettings.Development.json" t="Include" />
       <e p="appsettings.json" t="Include" />
@@ -193,6 +194,7 @@
       </e>
       <e p="CoursesCLI.csproj" t="IncludeRecursive" />
       <e p="CoursesCLI.sln" t="IncludeFlat" />
+      <e p="Dockerfile" t="Include" />
       <e p="obj" t="ExcludeRecursive">
         <e p="Debug" t="Include">
           <e p="netcoreapp2.0" t="Include">
