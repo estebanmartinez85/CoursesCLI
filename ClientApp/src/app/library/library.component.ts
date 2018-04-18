@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {SirenResponse} from "../DTO/sirenresponse";
+import {SirenEntity as SirenResponse} from "../DTO/SirenEntity";
 import {LibraryService} from "../services/library.service";
 import {environment} from "../../environments/environment";
 
@@ -19,7 +19,7 @@ export class LibraryComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.id = this.service.GetId();
+    this.id = this.service.GetParentId();
     this.GetLibrary();
   }
 

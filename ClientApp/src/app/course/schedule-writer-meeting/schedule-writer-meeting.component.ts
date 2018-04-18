@@ -1,6 +1,6 @@
 import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 import {CourseComponent} from "../course.component";
-import {SirenResponse} from "../../DTO/sirenresponse";
+import {SirenEntity as SirenResponse} from "../../DTO/SirenEntity";
 
 @Component({
   selector: 'app-schedule-writer-meeting',

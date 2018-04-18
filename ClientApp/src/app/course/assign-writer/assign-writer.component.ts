@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {SirenResponse} from "../../DTO/sirenresponse";
+import {SirenEntity as SirenResponse} from "../../DTO/SirenEntity";
 import {CourseComponent} from "../course.component";
 import {Action} from "../../DTO/action";
 

@@ -9,16 +9,16 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let e of libraries.entities" (click)="RowClick(e.properties.id)">
+      <tr *ngFor="let e of libraries.entities" (click)="router.navigate(['library/' + e.properties.id ])">
         <td>{{e.properties.title}}</td>
         <td *ngIf="libraries.actions" align="right">
-          <button (click)="DeleteLibrary(e.properties.id);$event.stopPropagation();" id="delete-library" class="btn btn-dark">Delete Library</button>
+          <button (click)="DeleteLibrary(e.properties.id); $event.stopPropagation();" id="delete-library" class="btn btn-dark">Delete Library</button>
         </td>
       </tr>
       </tbody>
     </table>
   </div>
   <div>
-    <button (click)="GoTo('library/add')" class="btn btn-dark">Add New Library</button>
+    <button (click)="router.navigate(['library/add'])" class="btn btn-dark">Add New Library</button>
   </div>
 </div>

@@ -27,18 +27,38 @@
                   <span class='glyphicon glyphicon-th-list'></span> Libraries
                 </a>
               </li>
+              <li *ngIf="auth.isLoggedIn()" [routerLinkActive]='["link-active"]'>
+                <a [routerLink]='["/user"]' (click)='collapse()'>
+                  <span class='glyphicon glyphicon-th-list'></span> User
+                </a>
+                <ul class='nav navbar-nav'>
+                  <li *ngIf="auth.user.role != 'Administrator'">
+                    <a [routerLink]='["/user/timesheet"]'>
+                      <span class='glyphicon glyphicon-th-list'></span> Timesheet
+                    </a>
+                  </li>
+                  <li *ngIf="auth.user.role == 'Administrator'">
+                    <a [routerLink]='["/timesheets"]' >
+                      <span class='glyphicon glyphicon-th-list'></span> Timesheets
+                    </a>
+                  </li>
+                  <li>
+                    <a [routerLink]='["/user/settings"]'>
+                      <span class='glyphicon glyphicon-th-list'></span> Settings
+                    </a>
+                  </li>
+                </ul>
+              </li>
                 <li *ngIf="getAuth().isLoggedOut()" [routerLinkActive]='["link-active"]'>
                     <a [routerLink]='["/auth"]' (click)='collapse()'>
                         <span class='glyphicon glyphicon-th-list'></span> Login
                     </a>
                 </li>
-
                 <li *ngIf="getAuth().isLoggedIn()" [routerLinkActive]='["links-active"]'>
                   <a [routerLink]='["/auth"]' (click)='Logout()'>
                     <span class='glyphicon glyphicon-th'></span> Logout
                   </a>
                 </li>
-
             </ul>
         </div>
     </div>

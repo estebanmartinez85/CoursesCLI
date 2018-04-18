@@ -4,7 +4,7 @@ declare var Focus: any;
 
 import {CourseService} from "../../services/course.service";
 import {Component, OnInit, SecurityContext, ViewChild} from '@angular/core';
-import {SirenResponse} from "../../DTO/sirenresponse";
+import {SirenEntity as SirenResponse} from "../../DTO/SirenEntity";
 import { QuillComponent, QuillDirective,
   QuillConfigInterface, QuillModulesInterface } from 'ngx-quill-wrapper';
 import { Sanitizer } from '@angular/core';

@@ -1,41 +1,39 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthComponent} from "../auth/auth.component";
-import {BaseComponent} from "../base/base.component";
 import {environment} from "../../environments/environment";
-import {SirenResponse} from "../DTO/sirenresponse";
-import {Action} from "../DTO/action";
+import {SirenEntity} from "../DTO/SirenEntity";
+import {LibraryService} from "../services/library.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-libraries',
   templateUrl: './libraries.component.html',
   styleUrls: ['./libraries.component.css']
 })
-export class LibrariesComponent extends BaseComponent implements OnInit {
-  public libraries : SirenResponse;
+export class LibrariesComponent implements OnInit {
+  public libraries : SirenEntity;
+  private service: LibraryService;
+  private router: Router;
   Object = Object;
+
+  constructor(service: LibraryService, router: Router){
+    this.service = service;
+    this.router = router;
+  }
+
   ngOnInit() {
-    if (!this.libraries)
-      this.GetLibraries();
-
+    if (!this.libraries) {
+      this.LoadLibraries();
+    }
   }
 
-  private GetLibraries(): void {
-    this.http.get<SirenResponse>(environment.apiURL + 'libraries')
-      .subscribe(result => { this.libraries = result; },
-                 error => console.error(error));
+  public LoadLibraries(): void {
+    this.service.GetLibraries().subscribe(result => {
+        this.libraries = result;
+      },
+      error => console.error(error));
   }
-  private AddLibrary(): void {
-  }
+
   public DeleteLibrary(id: number){
-    this.http.delete(environment.apiURL + 'libraries/' + id).subscribe(res => this.GetLibraries());
-  }
-
-  private RowClick(id: number){
-    this.router.navigate(['library/'+id]);
-  }
-
-
-  protected GoTo(path: string): void {
-    this.router.navigate([path]);
+    this.service.Delete(id).subscribe(res => this.LoadLibraries());
   }
 }

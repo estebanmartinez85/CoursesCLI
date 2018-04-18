@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {SirenResponse} from "../DTO/sirenresponse";
+import {SirenEntity as SirenResponse} from "../DTO/SirenEntity";
 import {CourseService} from "../services/course.service";
 import { Location } from '@angular/common';
 import {Action} from "../DTO/action";

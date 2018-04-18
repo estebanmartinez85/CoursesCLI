@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {CourseComponent} from "../course.component";
 import {environment} from "../../../environments/environment";
-import {SirenResponse} from "../../DTO/sirenresponse";
+import {SirenEntity as SirenResponse} from "../../DTO/SirenEntity";
 
 @Component({
   selector: 'app-writer-meeting-waiting',

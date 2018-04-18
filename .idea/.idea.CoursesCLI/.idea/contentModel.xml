@@ -54,12 +54,6 @@
                 <e p="assign-writer.component.spec.ts" t="Include" />
                 <e p="assign-writer.component.ts" t="Include" />
               </e>
-              <e p="child" t="Include">
-                <e p="child.component.css" t="Include" />
-                <e p="child.component.html" t="Include" />
-                <e p="child.component.spec.ts" t="Include" />
-                <e p="child.component.ts" t="Include" />
-              </e>
               <e p="course-add" t="Include">
                 <e p="course-add.component.css" t="Include" />
                 <e p="course-add.component.html" t="Include" />
@@ -77,12 +71,6 @@
                 <e p="schedule-writer-meeting.component.ts" t="Include" />
               </e>
               <e p="storyboard" t="Include">
-                <e p="slide" t="Include">
-                  <e p="slide.component.css" t="Include" />
-                  <e p="slide.component.html" t="Include" />
-                  <e p="slide.component.spec.ts" t="Include" />
-                  <e p="slide.component.ts" t="Include" />
-                </e>
                 <e p="storyboard.component.css" t="Include" />
                 <e p="storyboard.component.html" t="Include" />
                 <e p="storyboard.component.spec.ts" t="Include" />
@@ -103,12 +91,8 @@
             </e>
             <e p="DTO" t="Include">
               <e p="action.ts" t="Include" />
-              <e p="course.ts" t="Include" />
               <e p="entity.ts" t="Include" />
-              <e p="Library" t="Include">
-                <e p="library.ts" t="Include" />
-              </e>
-              <e p="sirenresponse.ts" t="Include" />
+              <e p="SirenEntity.ts" t="Include" />
             </e>
             <e p="entities" t="Include">
               <e p="user.ts" t="Include" />
@@ -155,6 +139,34 @@
               <e p="course.service.ts" t="Include" />
               <e p="library.service.spec.ts" t="Include" />
               <e p="library.service.ts" t="Include" />
+              <e p="timesheet.service.spec.ts" t="Include" />
+              <e p="timesheet.service.ts" t="Include" />
+              <e p="user.service.spec.ts" t="Include" />
+              <e p="user.service.ts" t="Include" />
+            </e>
+            <e p="timesheets" t="Include">
+              <e p="timesheets.component.css" t="Include" />
+              <e p="timesheets.component.html" t="Include" />
+              <e p="timesheets.component.spec.ts" t="Include" />
+              <e p="timesheets.component.ts" t="Include" />
+            </e>
+            <e p="user" t="Include">
+              <e p="settings" t="Include">
+                <e p="settings.component.css" t="Include" />
+                <e p="settings.component.html" t="Include" />
+                <e p="settings.component.spec.ts" t="Include" />
+                <e p="settings.component.ts" t="Include" />
+              </e>
+              <e p="timesheet" t="Include">
+                <e p="timesheet.component.css" t="Include" />
+                <e p="timesheet.component.html" t="Include" />
+                <e p="timesheet.component.spec.ts" t="Include" />
+                <e p="timesheet.component.ts" t="Include" />
+              </e>
+              <e p="user.component.css" t="Include" />
+              <e p="user.component.html" t="Include" />
+              <e p="user.component.spec.ts" t="Include" />
+              <e p="user.component.ts" t="Include" />
             </e>
           </e>
           <e p="assets" t="Include">

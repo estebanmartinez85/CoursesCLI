@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
 import {AuthService} from "../services/auth-service.service";
@@ -8,8 +8,7 @@ import {AuthService} from "../services/auth-service.service";
   templateUrl: './base.component.html',
   styleUrls: ['./base.component.css']
 })
-export class BaseComponent implements OnInit {
-
+export class BaseComponent {
   public auth: AuthService;
   public http: HttpClient;
   public router: Router;
@@ -20,7 +19,4 @@ export class BaseComponent implements OnInit {
     this.router = router;
     this.route = route;
   }
-  ngOnInit() {
-  }
-
 }

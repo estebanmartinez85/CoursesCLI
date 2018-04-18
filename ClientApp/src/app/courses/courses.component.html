@@ -7,7 +7,7 @@
           <th scope="col">Code</th>
           <th scope="col">Title</th>
           <th scope="col">Status</th>
-          <th scope="col" *ngIf="auth.user.role === 'Administrator'" style="text-align:right">Actions</th>
+          <th scope="col" *ngIf="service.auth.user.role === 'Administrator'" style="text-align:right">Actions</th>
         </tr>
         </thead>
         <tbody>
@@ -15,7 +15,7 @@
           <th scope="row">{{e.properties.code}}</th>
           <td>{{e.properties.title}}</td>
           <td>{{SplitPascal(e.properties.status)}}</td>
-          <td *ngIf="courses.actions && auth.user.role === 'Administrator'" align="right">
+          <td *ngIf="courses.actions && service.auth.user.role === 'Administrator'" align="right">
             <button (click)="DeleteCourse(e.properties.id); $event.stopPropagation();"  id="delete-course" class="btn btn-dark">Delete Course</button>
           </td>
         </tr>

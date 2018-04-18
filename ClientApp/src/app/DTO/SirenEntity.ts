@@ -1,9 +1,9 @@
-import { Entity } from "./entity";
 import { Action } from "./action";
 
-export interface SirenResponse {
+export interface SirenEntity {
   class: string[];
   properties: {[name:string]:string};
-  entities: Entity[];
+  entities: SirenEntity[];
   actions: Action[];
+  links: {[name:string]:any}[];
 }

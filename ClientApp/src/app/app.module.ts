@@ -24,10 +24,15 @@ import { LibraryAddComponent } from './library/library-add/library-add.component
 import { LibraryService } from "./services/library.service";
 import { CourseAddComponent } from './course/course-add/course-add.component';
 import { StoryboardComponent } from './course/storyboard/storyboard.component';
-import { SlideComponent } from './course/storyboard/slide/slide.component';
 import { QuillModule } from 'ngx-quill-wrapper';
 import { QUILL_CONFIG } from 'ngx-quill-wrapper';
 import { QuillConfigInterface } from 'ngx-quill-wrapper';
+import { UserComponent } from './user/user.component';
+import { TimesheetComponent } from './user/timesheet/timesheet.component';
+import { SettingsComponent } from './user/settings/settings.component';
+import {UserService} from "./services/user.service";
+import {TimesheetService} from "./services/timesheet.service";
+import { TimesheetsComponent } from './timesheets/timesheets.component';
 
 const DEFAULT_QUILL_CONFIG: QuillConfigInterface = {
 };
@@ -49,7 +54,10 @@ const DEFAULT_QUILL_CONFIG: QuillConfigInterface = {
     LibraryAddComponent,
     CourseAddComponent,
     StoryboardComponent,
-    SlideComponent
+    UserComponent,
+    TimesheetComponent,
+    SettingsComponent,
+    TimesheetsComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -57,6 +65,11 @@ const DEFAULT_QUILL_CONFIG: QuillConfigInterface = {
     FormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, canActivate: [AuthGuard], pathMatch: 'full' },
+      { path: 'user', component: UserComponent, canActivate: [AuthGuard],
+        children: [
+          { path: 'timesheet', component: TimesheetComponent, canActivate: [AuthGuard] },
+          { path: 'settings', component: SettingsComponent, canActivate: [AuthGuard] }
+          ]},
       { path: 'courses', component: CoursesComponent, canActivate: [AuthGuard] },
       { path: 'course/add/:libraryid', component: CourseAddComponent, canActivate: [AuthGuard] },
       { path: 'course/:id/Assign', component: AssignWriterComponent },
@@ -65,12 +78,12 @@ const DEFAULT_QUILL_CONFIG: QuillConfigInterface = {
             { path: "AssignWriter", component: AssignWriterComponent, canActivate: [AuthGuard], data: { role:"Administrator" } },
             { path: "ScheduleWriterMeeting", component: ScheduleWriterMeetingComponent, canActivate: [AuthGuard], data: { role:"Administrator" } },
             { path: "WriterMeetingWaiting", component: WriterMeetingWaitingComponent, canActivate: [AuthGuard], data: { role:"Administrator" } },
-            { path: "Storyboard", component: StoryboardComponent, canActivate: [AuthGuard],
-              children: [ { path: "Slide", component: SlideComponent, canActivate: [AuthGuard] }]}
+            { path: "Storyboard", component: StoryboardComponent, canActivate: [AuthGuard] }
           ]},
       { path: 'library/add', component: LibraryAddComponent, canActivate: [AuthGuard], data: { role:"Administrator" } },
       { path: 'library/:id', component: LibraryComponent, canActivate: [AuthGuard], data: { role:"Administrator" } },
       { path: 'libraries', component: LibrariesComponent, canActivate: [AuthGuard], data: { role:"Administrator" } },
+      { path: 'timesheets', component: TimesheetsComponent, canActivate: [AuthGuard], data: { role: "Administrator" } },
       { path: 'auth', component: AuthComponent }
     ], { onSameUrlNavigation: "reload" }),
     QuillModule
@@ -79,9 +92,8 @@ const DEFAULT_QUILL_CONFIG: QuillConfigInterface = {
     {
       provide: QUILL_CONFIG,
       useValue: DEFAULT_QUILL_CONFIG
-    }],
+    }, UserService, TimesheetService],
   bootstrap: [AppComponent]
-
 })
 
 export class AppModule {}
